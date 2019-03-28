@@ -1,95 +1,182 @@
+// allows access to .env file where API keys are held
 require("dotenv").config();
+
+// a variable declared 
 var keys = require("./keys.js");
 
+// 
 var axios = require("axios");
-var dotenv = require("dotenv");
 var moment = require("moment");
-var spotify = require("node-spotify-api");
+var Spotify = require("node-spotify-api");
 var fs = require("fs");
 
-var spotify = new spotify(keys.spotify);
+// setting process.argv to a more human-friendly name
+const userInput = process.argv;
 
-command = process.argv[2];
-// this may need to be slice(3)
-userInput = arr.slice(2).join(' ')
+// enacting a constructor that lives in the node-spotify-api apparently 
+var Spotify = new Spotify({
+  id: keys.spotify.id, 
+  secret: keys.spotify.secret
+});
 
-if (command === "movie-this") {
-  // hit OMDb
-} else if (command === "concert-this") {
-  // hit bands in town API
-} else if (command === "spotify-this") {
-  // hit spotify
-} else if (command === "do-what-it-says") {
-  // hit fs ...?
+// setting process.argv[2] to the human-friendly "search" name
+var search = process.argv[2];
+
+// talking everything after the 3rd index of userInput and turning it into a string with spaces in between.
+// Additionally, this is setting that 4th index to the human-friendly "term" name 
+var term = userInput.slice(3).join(' ')
+
+// a bunch of if-else statements to capture process.argv[2] and begin the appropriate search.
+// each calls on a function/API call to be defined below.
+
+// for OMDb
+if (search === "movie-this") {
+  movieSearch(term);
+
+// for the concert API
+} else if (search === "concert-this") {
+  concertSearch(term);
+
+// for spotify
+} else if (search === "spotify-this") {
+  songSearch(term);
+
+// for the fs call to randonly choose one of the three above with a set search
+} else if (search === "do-what-it-says") {
+  doWhatItSays();
 }
 
-// Pseudo Code
+// the movie search function
+function movieSearch(term) {
+  // forces a search for "The Room" in case the user does not input anything to search
+  if (term.length === 0) {
+    term = "The Room"
+  }
+  //axios call to OMDb API
+  axios.get("http://www.omdbapi.com/?t=" + term + "&y=&plot=short&apikey=trilogy").then(
+  function(response) {
 
-// TODO: make it so liri.js can take in one of the following commands:
-    
-    // TODO: 'concert-this'(4 points)
+    // declaring response data equal to the human-friendly movieData
+    movieData = response.data
+    // a forinloop to grab the Rotten Tomatoes rating from the object
+    //  in the array in the object that is the API call for a given movie
+    for (i in movieData.Ratings){
+      if(movieData.Ratings[i].Source === 'Rotten Tomatoes'){
+        // setting the Rotten Tomatoes rating to a variable so it can be called i the array below
+        var tomatoes = movieData.Ratings[i].Value;
+    }
+  };
+    // declaring a variable equal to an array of movie properties
+    var showMovieData = [
 
-        // 'node liri.js concert-this <artist/band name here>
-          // This will search the Bands in Town Artist Events API 
-          // (`"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`) 
-          // for an artist and render the following information about each event to the terminal:
+      "\n" + "Title: " + movieData.Title,
+      "Year: " + movieData.Year,
+      "IMDB Rating: " + movieData.imdbRating,
+      "Rotten Tomatoes: " + tomatoes,
+      "Country: " + movieData.Country,
+      "Language: " + movieData.Language,
+      "Plot: " + movieData.Plot,
+      "Actors: " + movieData.Actors + "\n", 
+    ].join("\n");
+    //.join() makes this array a string separated by line breaks; it looks nicer
 
-        // Name of the venue
-   
-        // Venue location
-   
-        // Date of the Event (use moment to format this as "MM/DD/YYYY")
-   
+    console.log(showMovieData);
+    // prints the array to the console
+  });
+}
 
-    // TODO: 'spotify-this' (9 points)
+// the concert search function
+function concertSearch(term) {
+  //axios call to Bands in Town API
+  axios.get("https://rest.bandsintown.com/artists/" + term + "/events?app_id=codingbootcamp").then(
+    function(response) {
 
-        // `node liri.js spotify-this-song '<song name here>'`
+      // declaring response data equal to the human-friendly concertData
+      concertData = response.data
+      // creating an empty array to push each of the concerts per band
+      concertList = [];
+      //a forloop to 
+      for (let i = 0; i < concertData.length; i++) {
+        // 1) reformat the date for each concert
+        let showDate = (moment(concertData[i].datetime, "YYYY-MM-DD")).format("MM/DD/YYYY")
+        // 2) declare an array of properties for every concert per band
+        var showConcertData = [
+        "\n\nUpcoming " + term + " Concert:",
+         "Venue: " + concertData[i].venue.name,
+        "Location: " + concertData[i].venue.city + ", " + concertData[i].venue.country,
+        "Date: " + showDate, 
+      ].join("\n");
 
-        // This will show the following information about the song in your terminal/bash window
- 
-        // Artist(s)
- 
-        // The song's name
- 
-        // A preview link of the song from Spotify
- 
-        // The album that the song is from
- 
-        //  If no song is provided then your program will default to "The Sign" by Ace of Base.
- 
-        // You will utilize the [node-spotify-api](https://www.npmjs.com/package/node-spotify-api) 
-          //package in order to retrieve song information from the Spotify API.
- 
-        // The Spotify API requires you sign up as a developer to generate the necessary credentials. 
-          //You can follow these steps in order to generate a **client id** and **client secret**:
+      // pushing each joined array into the concertList array above
+      concertList.push(showConcertData);
+    }
 
-    // 'movie-this' (10 points)
+      // printing the full array to the console as strings for formatting purposes 
+      console.log(concertList.join());
+  });
+}
 
-        // TODO: This will output the following information to your terminal/bash window:
+// the song search function
+function songSearch(term){
+  // if statement forcing a seach to Rick Roll you if you don't have a song with your "spotify-this" search
+  if (term.length === 0) {
+    term = "Never Gonna Give You Up"
+  }
 
-        // Title of the movie.
-        // Year the movie came out.
-        // IMDB Rating of the movie.
-        // Rotten Tomatoes Rating of the movie.
-        // Country where the movie was produced.
-        // Language of the movie.
-        // Plot of the movie.
-        // Actors in the movie.
+  //instead of an axios call, we have to use a unique search with Spotify
+  Spotify.search({ type: 'track', query: term, limit: 5 }, function(err, data) {
+    if (err) {
+      console.log('Error occurred: ' + err);
+      return
+    };
 
-        //  If the user doesn't type a movie in, 
-        //  the program will output data for the movie 'Mr. Nobody.'
+    // declaring data.tracks.items equal to the human-friendly songData
+    var songData = data.tracks.items;
+    //an array of song properties
+    var showSongData = [
+    "\nSong Name: " + songData[0].name,
+    "Artist(s): " + songData[0].artists[0].name,
+    "Album: " + songData[0].album.name,
+    "Preview Link: " + songData[0].preview_url + "\n"
+    ].join("\n");
 
-    // 'do-what-it-says' (3 points)
+  // printing the stringified array to the console
+  console.log(showSongData); 
+  });
+}
 
-        //Using the `fs` Node package, LIRI will take the text inside of random.txt 
-          // and then use it to call one of LIRI's commands.
-        // It should run `spotify-this-song` for "I Want it That Way," 
-          //as follows the text in `random.txt`.
-        // Edit the text in random.txt to test out the feature for movie-this and concert-this.
+// a function to give a "random search" chosen from pre-detarmined searches for each of 3 APIs
+function doWhatItSays() {
+  // reads a string from the random.txt file
+  fs.readFile('random.txt', "utf8", function(error, data){
 
+  if (error) {
+      console.log(error);
+      return;
+    }
 
+  // split it by commas (to make it separate the command from the term
+  var randomizer = data.split(",");
 
+  // if else statement chain to diferentiate search by process.argv[2]
 
+  // for OMDb
+  if (randomizer[0] === "movie-this") {
+    var term = randomizer[1];
+    movieSearch(term);
+  
+    // for Bands in Town
+  } else if (randomizer[0] === "concert-this") {
+    var term = randomizer[1];
+    concertSearch(term);
 
-// Spotify call
+    // for spotify
+  } else if(randomizer[0] === "spotify-this") {
+    var term = randomizer[1];
+    songSearch(term);
+  } 
+  }
+
+)}
+
 
