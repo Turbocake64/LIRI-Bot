@@ -69,6 +69,7 @@ function movieSearch(term) {
     // declaring a variable equal to an array of movie properties
     var showMovieData = [
 
+      "\n",
       "\n" + "Title: " + movieData.Title,
       "Year: " + movieData.Year,
       "IMDB Rating: " + movieData.imdbRating,
@@ -80,15 +81,22 @@ function movieSearch(term) {
     ].join("\n");
     //.join() makes this array a string separated by line breaks; it looks nicer
 
-    console.log(showMovieData);
     // prints the array to the console
+    console.log(showMovieData);
+
+    // appends the info as text to log.txt file; will create log.txt if it doesn't already exist
+    fs.appendFile("log.txt", showMovieData, function(err){
+      if(err) throw err;
+      console.log("Saved to log.txt")
+    })
+
   });
 }
 
 // the concert search function
 function concertSearch(term) {
-  //axios call to Bands in Town API
-  axios.get("https://rest.bandsintown.com/artists/" + term + "/events?app_id=codingbootcamp").then(
+  //axios call to Bands in Town API (GOT THE REGEX TO GET DOWHATITSAYS() TO WORK!)
+  axios.get("https://rest.bandsintown.com/artists/" + term.replace(/^"(.*)"$/, '$1') + "/events?app_id=codingbootcamp").then(
     function(response) {
 
       // declaring response data equal to the human-friendly concertData
@@ -113,6 +121,12 @@ function concertSearch(term) {
 
       // printing the full array to the console as strings for formatting purposes 
       console.log(concertList.join());
+
+      // appends the info as text to log.txt file; will create log.txt if it doesn't already exist
+      fs.appendFile("log.txt", concertList.join(), function(err){
+        if(err) throw err;
+        console.log("Saved to log.txt")
+    })
   });
 }
 
@@ -134,6 +148,7 @@ function songSearch(term){
     var songData = data.tracks.items;
     //an array of song properties
     var showSongData = [
+      "\n",
     "\nSong Name: " + songData[0].name,
     "Artist(s): " + songData[0].artists[0].name,
     "Album: " + songData[0].album.name,
@@ -142,6 +157,12 @@ function songSearch(term){
 
   // printing the stringified array to the console
   console.log(showSongData); 
+
+  // appends the info as text to log.txt file; will create log.txt if it doesn't already exist
+  fs.appendFile("log.txt", showSongData, function(err){
+    if(err) throw err;
+    console.log("Saved to log.txt")
+    })
   });
 }
 
@@ -158,25 +179,27 @@ function doWhatItSays() {
   // split it by commas (to make it separate the command from the term
   var randomizer = data.split(",");
 
-  // if else statement chain to diferentiate search by process.argv[2]
+  // if else statement chain to differentiate search by process.argv[2]
 
-  // for OMDb
-  if (randomizer[0] === "movie-this") {
-    var term = randomizer[1];
-    movieSearch(term);
-  
+    // for OMDb
+  // if (randomizer[0] === "movie-this") {
+  //   var term = randomizer[1];
+  //   movieSearch(term);
+  // }
+
     // for Bands in Town
-  } else if (randomizer[0] === "concert-this") {
+  // } else 
+  if (randomizer[0] === "concert-this") {
     var term = randomizer[1];
     concertSearch(term);
+  };
 
-    // for spotify
-  } else if(randomizer[0] === "spotify-this") {
-    var term = randomizer[1];
-    songSearch(term);
-  } 
+  //   // for spotify
+  // } else if(randomizer[0] === "spotify-this") {
+  //   var term = randomizer[1];
+  //   songSearch(term);
+  // } 
   }
-
 )}
 
 

@@ -1,0 +1,218 @@
+data to append
+Title: Paris Is Burning
+Year: 1990
+IMDB Rating: 8.1
+Rotten Tomatoes: 100%
+Country: USA
+Language: English
+Plot: A chronicle of New York's drag scene in the 1980s, focusing on balls, voguing and the ambitions and dreams of those who gave the era its warmth and vitality.
+Actors: Brooke Xtravaganza, André Christian, Dorian Corey, Paris Duprée
+
+
+Upcoming Metric Concert:
+Venue: Save-On-Foods Memorial Centre
+Location: Victoria, Canada
+Date: 04/17/2019,
+
+Upcoming Metric Concert:
+Venue: Pacific Coliseum
+Location: Vancouver, Canada
+Date: 04/18/2019,
+
+Upcoming Metric Concert:
+Venue: Stampede Corral
+Location: Calgary, Canada
+Date: 04/20/2019,
+
+Upcoming Metric Concert:
+Venue: Edmonton Convention Centre (formerly Shaw Conference Centre)
+Location: Edmonton, Canada
+Date: 04/21/2019,
+
+Upcoming Metric Concert:
+Venue: Sasktel Centre
+Location: Saskatoon, Canada
+Date: 04/22/2019,
+
+Upcoming Metric Concert:
+Venue: Bell MTS Place
+Location: Winnipeg, Canada
+Date: 04/23/2019,
+
+Upcoming Metric Concert:
+Venue: Scotiabank Arena
+Location: Toronto, Canada
+Date: 04/26/2019,
+
+Upcoming Metric Concert:
+Venue: TD Place
+Location: Ottawa, Canada
+Date: 04/27/2019,
+
+Upcoming Metric Concert:
+Venue: Budweiser Gardens
+Location: London, Canada
+Date: 04/28/2019,
+
+Upcoming Metric Concert:
+Venue: Scotiabank Centre
+Location: Halifax, Canada
+Date: 05/02/2019,
+
+Upcoming Metric Concert:
+Venue: Avenir Centre
+Location: Moncton, Canada
+Date: 05/03/2019,
+
+Upcoming Metric Concert:
+Venue: M Telus
+Location: Montreal, Canada
+Date: 05/05/2019,
+
+Upcoming Metric Concert:
+Venue: Auditorio Nacional
+Location: Ciudad De México, Mexico
+Date: 06/28/2019,
+
+Upcoming Metric Concert:
+Venue: Auditorio Nacional
+Location: Ciudad De México, Mexico
+Date: 06/29/2019,
+
+Upcoming Metric Concert:
+Venue: Basilica of St Mary
+Location: Minneapolis, United States
+Date: 07/13/2019,
+
+Upcoming Metric Concert:
+Venue: Bánffy Castle
+Location: Bontida, Romania
+Date: 07/17/2019,
+
+Upcoming Metric Concert:
+Venue: Hippodrome  Longchamp
+Location: Paris, France
+Date: 07/20/2019
+Song Name: Peanut Butter Jelly
+Artist(s): Galantis
+Album: Pharmacy
+Preview Link: https://p.scdn.co/mp3-preview/b7fb82cd8de6d07fca2be8ce026004c26c8072c6?cid=5358430b903f4657bc0116ce03993de4
+
+
+
+Song Name: Oops!...I Did It Again
+Artist(s): Britney Spears
+Album: Oops!... I Did It Again
+Preview Link: https://p.scdn.co/mp3-preview/7fb86827422540ad01f65870375fef055412f034?cid=5358430b903f4657bc0116ce03993de4
+
+
+
+Song Name: monster
+Artist(s): 21 Savage
+Album: i am > i was
+Preview Link: https://p.scdn.co/mp3-preview/77673ecb9ddb7745608b96d83543d39e8481c996?cid=5358430b903f4657bc0116ce03993de4
+
+
+Upcoming The Rolling Stones Concert:
+Venue: Hard Rock Stadium
+Location: Miami Gardens, United States
+Date: 04/20/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: TIAA Bank Field
+Location: Jacksonville, United States
+Date: 04/24/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: NRG Arena
+Location: Houston, United States
+Date: 04/28/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: Fairgrounds New Orleans
+Location: New Orleans, United States
+Date: 05/02/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: State Farm Stadium
+Location: Glendale, United States
+Date: 05/07/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: Rose Bowl Stadium
+Location: Pasadena, United States
+Date: 05/11/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: Levi's Stadium
+Location: Santa Clara, United States
+Date: 05/18/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: CenturyLink Field
+Location: Seattle, United States
+Date: 05/22/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: Broncos Stadium at Mile High
+Location: Denver, United States
+Date: 05/26/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: FedEx Field
+Location: Landover, United States
+Date: 05/31/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: Lincoln Financial Field
+Location: Philadelphia, United States
+Date: 06/04/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: Gillette Stadium
+Location: Foxborough, United States
+Date: 06/08/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: MetLife Stadium
+Location: East Rutherford, United States
+Date: 06/13/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: MetLife Stadium
+Location: East Rutherford, United States
+Date: 06/17/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: Soldier Field
+Location: Chicago, United States
+Date: 06/21/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: Soldier Field
+Location: Chicago, United States
+Date: 06/25/2019,
+
+Upcoming The Rolling Stones Concert:
+Venue: Burl's Creek Event Grounds
+Location: Oro-medonte, Canada
+Date: 06/29/2019
+Title: Lars and the Real Girl
+Year: 2007
+IMDB Rating: 7.3
+Rotten Tomatoes: 81%
+Country: USA, Canada
+Language: English, Spanish
+Plot: A delusional young man strikes up an unconventional relationship with a doll he finds on the Internet.
+Actors: Ryan Gosling, Emily Mortimer, Paul Schneider, R.D. Reid
+
+
+
+Title: Mala Mala
+Year: 2014
+IMDB Rating: 6.6
+Rotten Tomatoes: 94%
+Country: Puerto Rico, USA
+Language: Spanish, English
+Plot: A documentary about the power of transformation told through the eyes of 9 trans-identifying individuals in Puerto Rico.
+Actors: Jason Carrión, Samantha Close, Ivana Fred, Queen Bee Ho
